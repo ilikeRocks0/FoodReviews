@@ -4,15 +4,25 @@ import regex
 import spacy
 import re
 
-
+#dont use this
 REVIEW_PATH = "Yelp-JSON\Yelp JSON\yelp_dataset\yelp_academic_dataset_review.json"
+#use this
 REVIEW_TEST_PATH = "test_review.txt"
-reviews = []
 
+
+#gets the model to read do advanced clean up of the reviews
 nlp = spacy.load("en_core_web_sm")
 
 
+#goes through each review and stores it clean version in reviews
 def main():
+    reviews = proccess_reviews()
+    print(reviews)
+
+
+#process review based on review test path
+def proccess_reviews():
+    reviews = []
     with open(REVIEW_TEST_PATH, encoding='utf-8') as f:
         line = f.readline()
         while (line != ""):
@@ -20,9 +30,9 @@ def main():
             words = r["text"]
             reviews.append(words)
             line = f.readline()
+    return reviews
 
-    print(reviews)
-    
+
 def clean_text(text):
     # Remove content inside brackets [] or ()
     text = re.sub(r'\[.*?\]|\(.*?\)', '', text)
@@ -43,8 +53,4 @@ def clean_text(text):
     
     return " ".join(tokens)
 
-# main()
-print(clean_text("I [definitely] loved this place!!! (amazing food, 10/10)"))
-# doc = nlp("I love eating Apples, my phone is Apple")
-# for token in doc:
-#     print(token.text, token.pos_, token.dep_, token.is_alpha)
+main()
