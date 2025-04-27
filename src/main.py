@@ -54,6 +54,7 @@ def clean_text(text) -> list:
     doc = nlp(text)
     tokens = []
     
+    # dont have stop words and lemmatize
     for token in doc:
         if not token.is_stop and token.is_alpha:
             tokens.append(token.lemma_)
