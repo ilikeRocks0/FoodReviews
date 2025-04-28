@@ -45,4 +45,23 @@ looks like pipreqs had issues scanning the zip and env files so I moved files to
 Now to install correct requirements
 pip install -r /path/to/requirements.txt
 
+### test data
+looks like its having trouble reading "I Hate this place"
+thinks its positive
+the test data works well tho
 
+tried balancing out the data 30 bad 30 good
+no seeable changes
+
+trying with bigger data set
+there is 6990280 reviews in yelp academic data set
+i made 1-3 stars bad and 4,5 good
+
+
+### timing data
+I limited the amount of data from 6880280 to 25000
+code basically checks if we read in 25000 and stops reading it in
+6880280 takes a lot of days
+
+7:38.14 mins to train the 25000
+looks like it just set all data points to 0

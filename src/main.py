@@ -15,8 +15,14 @@ NEW_REVIEW = "I HATE HATE UNHAPPY WORST WORST"
 NEW_REVIEW2 = "I am a long term frequent customer of this establishment. I just went in to order take out (3 apps) and was told they're too busy to do it. Really? The place is maybe half full at best. Does your dick reach your ass? Yes? Go fuck yourself! I'm a frequent customer AND great tipper. Glad that Kanella just opened. NEVER going back to dmitris!"
 NEW_REVIEW3 = "I HATE HATE HATE HATE HATE HATE HATE HATE UNHAPPY UNHAPPY UNHAPPY UNHAPPY UNHAPPY UNHAPPY WORST WORST WORST WORST WORST WORST"
 NEW_REVIEW4 = "Service was crappy, and food was mediocre.  I wish I would have picked some other place for my last dinner in town."
+NEW_REVIEW5 = "I LOVE THIS PLACE"
+NEW_REVIEW6 = "HAPPY GOOD NICE EPIC COOL"
+NEW_REVIEW7 = "Buckingham Pizza makes the best pizza around, particularly its plain pizza and a few of its specialities -- try the cool ranch pizza. This is a pizza parlor. Don't get fancy....order the pizzas and maybe some sides. While some of the entrees are good (chicken piccata), stay with the pizza and you'll love it."
+NEW_REVIEW8 = "it was okay could be better"
+
 #when to print updates
 PRINT_THRESHOLD = 100
+MAX_THRESHOLD = 25000
 #gets the model to read do advanced clean up of the reviews
 nlp = spacy.load("en_core_web_sm")
 
@@ -35,6 +41,10 @@ def main():
     print(aiModel.predict_new_review(clean_text(NEW_REVIEW2)), NEW_REVIEW2)
     print(aiModel.predict_new_review(clean_text(NEW_REVIEW3)), NEW_REVIEW3)
     print(aiModel.predict_new_review(clean_text(NEW_REVIEW4)), NEW_REVIEW4)
+    print(aiModel.predict_new_review(clean_text(NEW_REVIEW)), NEW_REVIEW5)
+    print(aiModel.predict_new_review(clean_text(NEW_REVIEW2)), NEW_REVIEW6)
+    print(aiModel.predict_new_review(clean_text(NEW_REVIEW3)), NEW_REVIEW7)
+    print(aiModel.predict_new_review(clean_text(NEW_REVIEW4)), NEW_REVIEW8)
 
 
 #process review based on review test path
@@ -46,9 +56,9 @@ def proccess_reviews():
     count = 0
 
 
-    with open(REVIEW_RIGGED_TEST_PATH2, encoding='utf-8') as f:
+    with open(REVIEW_PATH, encoding='utf-8') as f:
         line = f.readline()
-        while (line != ""):
+        while (line != "" and count <= MAX_THRESHOLD):
             count+=1
             r = json.loads(line.strip())
             words = r["text"]
