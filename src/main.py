@@ -17,28 +17,26 @@ nlp = spacy.load("en_core_web_sm")
 #goes through each review and stores it clean version in reviews
 def main():
     #hold each word that will later be turned into a vector
-    word_bucket = []
-    reviews = proccess_reviews()
-    print(reviews)
-    for review in reviews:
-        #concatenates lists together
-        word_bucket += clean_text(review)
+    reviews, stars = proccess_reviews()
+    print(stars, reviews)
     
-    #so we can see the words
-    print(word_bucket)
 
 
 #process review based on review test path
+#returns processed reviews and star data
 def proccess_reviews():
     reviews = []
+    stars = []
     with open(REVIEW_TEST_PATH, encoding='utf-8') as f:
         line = f.readline()
         while (line != ""):
             r = json.loads(line.strip())
             words = r["text"]
+            goodness = int(r["stars"])
             reviews.append(words)
+            stars.append(goodness)
             line = f.readline()
-    return reviews
+    return reviews, stars
 
 
 def clean_text(text) -> list: 
