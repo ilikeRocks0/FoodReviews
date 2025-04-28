@@ -57,12 +57,9 @@ def proccess_reviews():
 
 
     with open(REVIEW_PATH, encoding='utf-8') as f:
-        for line in f:
+        line = f.readline()
+        while (line != "" and count <= MAX_THRESHOLD):
             count+=1
-
-            if (count <= MAX_THRESHOLD):
-                break
-
             r = json.loads(line.strip())
             words = r["text"]
             goodness = int(r["stars"])
