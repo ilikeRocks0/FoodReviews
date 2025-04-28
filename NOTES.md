@@ -1,6 +1,8 @@
 # Notes
 personal notes when working on this project
 
+
+### enviroment 
 created venv with
 python -m venv .venv
 
@@ -12,6 +14,8 @@ open venv
 to turn off
 deactivate
 
+
+### downloading pip 2.0.0
 Interesting things I learned
 python 11 was downloaded from microsoft store so I dont have access to the file location
 python 11 location
@@ -30,8 +34,7 @@ yea I still dont know
 I created the python enviroment with py -3.11 -m venv my_new_env
 specifying -3.11, so python version 3.11 will make the python environment with version 3.11
 
-
-
+### making it easy to redownload dependencies on other computers
 Dependecy downloads
 pip freeze gets all dependencies
 so use pipreqs
@@ -41,3 +44,5 @@ looks like pipreqs had issues scanning the zip and env files so I moved files to
 
 Now to install correct requirements
 pip install -r /path/to/requirements.txt
+
+

@@ -15,7 +15,7 @@ class ReviewAI:
         X = self.vectorizer.fit_transform(reviews)
 
 
-        X_train, X_test, y_train, y_test = train_test_split(X, stars, test_size=0.8)
+        X_train, X_test, y_train, y_test = train_test_split(X, stars, test_size=0.2)
 
         self.model = LogisticRegression()
         self.model.fit(X_train, y_train)

@@ -11,7 +11,10 @@ REVIEW_PATH = "assets\Yelp-JSON\Yelp JSON\yelp_dataset\yelp_academic_dataset_rev
 REVIEW_TEST_PATH = "src/test_review.txt"
 REVIEW_TEST_PATH2 = "src/test_review2.txt"
 REVIEW_RIGGED_TEST_PATH2 = "src/test_rigged_reviews.txt"
-NEW_REVIEW = "I WORST WORST PLACE!!!"
+NEW_REVIEW = "I HATE HATE UNHAPPY WORST WORST"
+NEW_REVIEW2 = "I am a long term frequent customer of this establishment. I just went in to order take out (3 apps) and was told they're too busy to do it. Really? The place is maybe half full at best. Does your dick reach your ass? Yes? Go fuck yourself! I'm a frequent customer AND great tipper. Glad that Kanella just opened. NEVER going back to dmitris!"
+NEW_REVIEW3 = "I HATE HATE HATE HATE HATE HATE HATE HATE UNHAPPY UNHAPPY UNHAPPY UNHAPPY UNHAPPY UNHAPPY WORST WORST WORST WORST WORST WORST"
+NEW_REVIEW4 = "Service was crappy, and food was mediocre.  I wish I would have picked some other place for my last dinner in town."
 #when to print updates
 PRINT_THRESHOLD = 100
 #gets the model to read do advanced clean up of the reviews
@@ -28,7 +31,10 @@ def main():
     aiModel = ReviewAI(reviews, stars)
     # print(stars, reviews)
 
-    print(aiModel.predict_new_review(clean_text(NEW_REVIEW)))
+    print(aiModel.predict_new_review(clean_text(NEW_REVIEW)), NEW_REVIEW)
+    print(aiModel.predict_new_review(clean_text(NEW_REVIEW2)), NEW_REVIEW2)
+    print(aiModel.predict_new_review(clean_text(NEW_REVIEW3)), NEW_REVIEW3)
+    print(aiModel.predict_new_review(clean_text(NEW_REVIEW4)), NEW_REVIEW4)
 
 
 #process review based on review test path
