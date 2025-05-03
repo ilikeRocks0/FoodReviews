@@ -65,3 +65,11 @@ code basically checks if we read in 25000 and stops reading it in
 
 7:38.14 mins to train the 25000
 looks like it just set all data points to 0
+
+
+# Timing functions
+for 25000 data points
+Reading Execution time: 0.026098 seconds
+Jsoning Execution time: 0.092817 seconds
+Filtering Execution time: 0.006079 seconds
+Cleaning Execution time: 224.400014 seconds
