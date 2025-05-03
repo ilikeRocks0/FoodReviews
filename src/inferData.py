@@ -42,9 +42,10 @@ def main():
     reviews = clean_reviews(reviews)
 
     good, bad, freq = organize_reviews(reviews)
-    print(f"good words: {good}")
-    print(f"bad words: {bad}")
-    print(f"word freq: {freq}")
+    # print(f"good words: {good}")
+    # print(f"bad words: {bad}")
+    # print(f"word freq: {freq}")
+    print_highest_words(freq, good, bad)
 
 # reads in each review from the file
 def read_in_reviews():
@@ -108,6 +109,15 @@ def harvest_words(review:str, wordFreq):
             wordFreq[word] = 0
         wordFreq[word]+=1 
     return set(words)
+
+
+def print_highest_words(wordfreq, good, bad):
+    sortedWords = sorted(wordfreq.items(), key=lambda x: x[1], reverse=True)
+
+    for i in range(10):
+        print(sortedWords[i])
+    
+
     
 if __name__ == "__main__":
     main()
