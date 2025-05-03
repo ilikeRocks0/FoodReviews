@@ -73,3 +73,14 @@ Reading Execution time: 0.026098 seconds
 Jsoning Execution time: 0.092817 seconds
 Filtering Execution time: 0.006079 seconds
 Cleaning Execution time: 224.400014 seconds
+
+
+# making mistakes in git
+use git commit --amend to add staged changes to last commit
+if you forgot to add files or need to update name
+
+use "git restore --staged <file>..." to unstage
+to unstage files
+
+use "git restore <file>..." to discard changes in working directory
+to undo modified changes
