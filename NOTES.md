@@ -84,3 +84,12 @@ to unstage files
 
 use "git restore <file>..." to discard changes in working directory
 to undo modified changes
+
+
+# pushing things to github
+
+adding a new alias
+git remote add origin (url to online repo)
+
+pushing changes to remote
+git push -u origin master
