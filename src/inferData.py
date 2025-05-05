@@ -53,7 +53,7 @@ def read_in_reviews():
     #counts what number we are reading
     count = 0
 
-    with open(REVIEW_TEST_PATH, encoding='utf-8') as f:
+    with open(REVIEW_PATH, encoding='utf-8') as f:
         line = f.readline()
         while (line != "" and count <= MAX_THRESHOLD):
             reviews.append(line)
@@ -113,9 +113,32 @@ def harvest_words(review:str, wordFreq):
 
 def print_highest_words(wordfreq, good, bad):
     sortedWords = sorted(wordfreq.items(), key=lambda x: x[1], reverse=True)
+    goodWords = []
+    badWords = []
+    for i in range(len(sortedWords)):
+        word = sortedWords[i][0]
+        if word in good and len(goodWords) < 10:
+            goodWords.append(word)
+        if word in bad and len(badWords) < 10:
+            badWords.append(word)
+    
+    goodLength = len(goodWords)
+    badLength = len(badWords)
 
-    for i in range(10):
-        print(sortedWords[i])
+    if (len(goodWords) > 10):
+        goodLength = 10
+    if (len(badWords) > 10):
+        badLength = 10
+
+    print("good words:")
+    for i in range(goodLength):
+        print(f"{i}: {goodWords[i]}")
+
+    print("bad words:")
+    for i in range(badLength):
+        print(f"{i}: {badWords[i]}")
+    
+
     
 
     
