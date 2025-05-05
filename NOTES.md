@@ -93,3 +93,8 @@ git remote add origin (url to online repo)
 
 pushing changes to remote
 git push -u origin master
+
+
+# IT WORKED YAY
+after doing inference on the data to figure out which words affect the model the most, it was easy to create test data.
+It also gave me a furthur understanding of how the model. 

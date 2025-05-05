@@ -20,6 +20,10 @@ NEW_REVIEW6 = "HAPPY GOOD NICE EPIC COOL"
 NEW_REVIEW7 = "Buckingham Pizza makes the best pizza around, particularly its plain pizza and a few of its specialities -- try the cool ranch pizza. This is a pizza parlor. Don't get fancy....order the pizzas and maybe some sides. While some of the entrees are good (chicken piccata), stay with the pizza and you'll love it."
 NEW_REVIEW8 = "it was okay could be better"
 
+#based on top ten words in the good section
+BETTER_REVIEW1 = "gorgeous superb delightful delish impeccable"
+BETTER_REVIEW2 = "apology lied rudely acknowledge rudest incompetent"
+
 #when to print updates
 PRINT_THRESHOLD = 100
 MAX_THRESHOLD = 25000
@@ -36,7 +40,7 @@ def main():
     print("training AI...")
     aiModel = ReviewAI(reviews, stars)
     # print(stars, reviews)
-
+    # these reviews dont work bc it needs more training data
     print(aiModel.predict_new_review(clean_text(NEW_REVIEW)), NEW_REVIEW)
     print(aiModel.predict_new_review(clean_text(NEW_REVIEW2)), NEW_REVIEW2)
     print(aiModel.predict_new_review(clean_text(NEW_REVIEW3)), NEW_REVIEW3)
@@ -45,6 +49,10 @@ def main():
     print(aiModel.predict_new_review(clean_text(NEW_REVIEW2)), NEW_REVIEW6)
     print(aiModel.predict_new_review(clean_text(NEW_REVIEW3)), NEW_REVIEW7)
     print(aiModel.predict_new_review(clean_text(NEW_REVIEW4)), NEW_REVIEW8)
+
+    #these data points are from the top ten words in both the good and bad categories
+    print(aiModel.predict_new_review(clean_text(BETTER_REVIEW1)), BETTER_REVIEW1)
+    print(aiModel.predict_new_review(clean_text(BETTER_REVIEW2)), BETTER_REVIEW2)
 
 
 #process review based on review test path

@@ -3,6 +3,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
+TEST_SIZE = 1
+
 class ReviewAI:
     vectorizer:CountVectorizer = None
     model:LogisticRegression = None
@@ -15,7 +17,7 @@ class ReviewAI:
         X = self.vectorizer.fit_transform(reviews)
 
 
-        X_train, X_test, y_train, y_test = train_test_split(X, stars, test_size=0.2)
+        X_train, X_test, y_train, y_test = train_test_split(X, stars, test_size=TEST_SIZE)
 
         self.model = LogisticRegression()
         self.model.fit(X_train, y_train)
